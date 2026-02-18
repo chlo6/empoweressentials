@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact | Empower Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #CDD5E5;
+      --bg-cream: #FAF6F0;
+      --text-primary: #1a2456;
+      --button-bg: #FAF6F0;
+      --button-border: #1a2456;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 0 rgba(26, 36, 86, 0.06);
+    }
+
+    .nav a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      opacity: 0.6;
+    }
+
+    .nav a.active {
+      font-weight: 500;
+      border-bottom: 2px solid var(--text-primary);
+      padding-bottom: 2px;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 12px 32px;
+      border: 2px solid var(--button-border);
+      border-radius: 24px;
+      background: var(--button-bg);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #f5efe6;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 2px solid var(--text-primary);
+    }
+
+    .btn--outline:hover {
+      background: rgba(26, 36, 86, 0.05);
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 120px 24px 60px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      margin-top: 16px;
+      opacity: 0.85;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Stats */
+    .stats-section {
+      background: var(--bg-cream);
+      padding: 64px 24px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 56px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 80px 24px;
+    }
+
+    .gallery-section h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 56px;
+      letter-spacing: -0.01em;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.5s ease;
+      cursor: grab;
+    }
+
+    .carousel:active {
+      cursor: grabbing;
+    }
+
+    .carousel-item {
+      flex: 0 0 320px;
+      height: 240px;
+      background: var(--bg-cream);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .carousel-btn {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--text-primary);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      background: var(--text-primary);
+      color: white;
+    }
+
+    /* Our Kits Section */
+    .kits-section {
+      background: var(--bg-color);
+      padding: 80px 24px;
+    }
+
+    .kits-section h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+      padding-left: 40px;
+    }
+
+    .kits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .kit-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kit-image {
+      background: linear-gradient(180deg, #e8edf5 0%, #f8f9fc 100%);
+      border-radius: 120px 120px 4px 4px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .kit-image-placeholder {
+      font-size: 14px;
+      color: var(--text-primary);
+      opacity: 0.5;
+    }
+
+    .kit-info {
+      background: var(--bg-cream);
+      padding: 20px 16px;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .kit-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .kit-contents {
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    /* Our Partners Section */
+    .partners-section {
+      background: white;
+      padding: 80px 24px;
+    }
+
+    .partners-section h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .partners-divider {
+      width: 40px;
+      height: 3px;
+      background: var(--text-primary);
+      margin: 0 auto 56px;
+    }
+
+    .partners-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .partner {
+      text-align: center;
+    }
+
+    .partner-logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .partner-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+
+    .partner-logo-placeholder {
+      font-size: 12px;
+      color: var(--text-primary);
+      opacity: 0.4;
+    }
+
+    .partner-name {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 1000px) {
+      .kits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .kits-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+      }
+
+      .kits-section h2 {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .partners-grid {
+        gap: 40px;
+      }
+
+      .partner-logo {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.85;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-cream);
+      padding: 48px 64px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-left a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-left a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-left span {
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .footer-socials a {
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-socials svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: right;
+    }
+
+    .footer-right a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-right a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        gap: 24px;
+        padding: 14px 20px;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
+      .stats {
+        gap: 40px;
+      }
+
+      .stat-number {
+        font-size: 36px;
+      }
+
+      .carousel-item {
+        flex: 0 0 260px;
+        height: 200px;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 32px;
+        padding: 40px 24px;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/impact" class="active">Impact</a>
+    <a href="/join">Join</a>
+    <a href="/contact">Contact Us</a>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Our Impact</h1>
+    <p>See the difference we're making together in our community.</p>
+  </header>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">kits created</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">7000+</div>
+        <div class="stat-label">items donated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2500+</div>
+        <div class="stat-label">dollars raised</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <h2>Ongoing Efforts</h2>
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
+        <div class="carousel-item">Image 1</div>
+        <div class="carousel-item">Image 2</div>
+        <div class="carousel-item">Image 3</div>
+        <div class="carousel-item">Image 4</div>
+        <div class="carousel-item">Image 5</div>
+        <div class="carousel-item">Image 6</div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn">&#8249;</button>
+      <button class="carousel-btn" id="nextBtn">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- Our Kits Section -->
+  <section class="kits-section">
+    <h2>Our Kits</h2>
+    <div class="kits-grid">
+      <div class="kit-card">
+        <div class="kit-image">
+          <span class="kit-image-placeholder">Add image</span>
+        </div>
+        <div class="kit-info">
+          <div class="kit-name">Dental Hygiene</div>
+          <div class="kit-contents">Toothpaste, toothbrush, floss, mouthwash</div>
+        </div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-image">
+          <span class="kit-image-placeholder">Add image</span>
+        </div>
+        <div class="kit-info">
+          <div class="kit-name">Feminine Hygiene [1]</div>
+          <div class="kit-contents">2 Regular Flow Pads, 2 Liners, 4 Tampons</div>
+        </div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-image">
+          <span class="kit-image-placeholder">Add image</span>
+        </div>
+        <div class="kit-info">
+          <div class="kit-name">Feminine Hygiene [2]</div>
+          <div class="kit-contents">1 Regular Flow Pad, 3 Liners, 4 Deep Flow Pads</div>
+        </div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-image">
+          <span class="kit-image-placeholder">Add image</span>
+        </div>
+        <div class="kit-info">
+          <div class="kit-name">Feminine Hygiene [3]</div>
+          <div class="kit-contents">4 Regular Flow Pads, 2 Liners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Partners Section -->
+  <section class="partners-section">
+    <h2>Our Partners</h2>
+    <div class="partners-divider"></div>
+    <div class="partners-grid">
+      <div class="partner">
+        <div class="partner-logo">
+          <span class="partner-logo-placeholder">Add logo</span>
+        </div>
+        <div class="partner-name">Family Supportive Housing</div>
+      </div>
+      <div class="partner">
+        <div class="partner-logo">
+          <span class="partner-logo-placeholder">Add logo</span>
+        </div>
+        <div class="partner-name">The Giving Tree</div>
+      </div>
+      <div class="partner">
+        <div class="partner-logo">
+          <span class="partner-logo-placeholder">Add logo</span>
+        </div>
+        <div class="partner-name">The Salvation Army</div>
+      </div>
+      <div class="partner">
+        <div class="partner-logo">
+          <span class="partner-logo-placeholder">Add logo</span>
+        </div>
+        <div class="partner-name">City Team</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Help Us Make a Bigger Impact</h2>
+    <p>Every contribution helps us reach more people in need.</p>
+    <a href="/contact" class="btn">Donate Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <a href="mailto:empoweressentials25@gmail.com">empoweressentials25@gmail.com</a>
+      <a href="tel:+14089159237">(408) 915 - 9237</a>
+      <span>Instagram: @empoweressentials25</span>
+      <div class="footer-socials">
+        <a href="https://instagram.com/empoweressentials25" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@empoweressentials25" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/accessibility">Accessibility Statement</a>
+    </div>
+  </footer>
+
+  <script>
+    // Carousel functionality with auto-scroll
+    const carousel = document.getElementById('carousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let position = 0;
+    const itemWidth = 344; // 320px + 24px gap
+    const totalItems = carousel.children.length;
+    const maxPosition = -(totalItems - 3) * itemWidth;
+
+    function scrollNext() {
+      if (position <= maxPosition) {
+        position = 0; // Loop back to start
+      } else {
+        position -= itemWidth;
+      }
+      carousel.style.transform = `translateX(${position}px)`;
+    }
+
+    function scrollPrev() {
+      if (position >= 0) {
+        position = maxPosition; // Loop to end
+      } else {
+        position += itemWidth;
+      }
+      carousel.style.transform = `translateX(${position}px)`;
+    }
+
+    nextBtn.addEventListener('click', scrollNext);
+    prevBtn.addEventListener('click', scrollPrev);
+
+    // Auto-scroll every 4 seconds
+    let autoScroll = setInterval(scrollNext, 4000);
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    carousel.addEventListener('mouseleave', () => {
+      autoScroll = setInterval(scrollNext, 4000);
+    });
+  </script>
+</body>
+</html>

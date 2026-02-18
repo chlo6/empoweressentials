@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empower Essentials</title>
+  <title>Contact Us | Empower Essentials</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,6 +27,9 @@
       font-weight: 400;
       background-color: var(--bg-color);
       color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Navigation */
@@ -58,64 +61,10 @@
       opacity: 0.6;
     }
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 100px 24px 60px;
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .title {
-      font-size: clamp(48px, 10vw, 96px);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .title-empower {
-      font-style: italic;
-    }
-
-    .motto {
-      font-size: 24px;
-      font-weight: 400;
-      margin-top: 20px;
-      color: var(--text-primary);
-      opacity: 0.85;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 64px;
-      margin-top: 56px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 40px;
-      font-weight: 300;
-      letter-spacing: -0.01em;
-    }
-
-    .stat-label {
-      font-size: 16px;
-      font-weight: 400;
-      margin-top: 4px;
-      opacity: 0.9;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 48px;
+    .nav a.active {
+      font-weight: 500;
+      border-bottom: 2px solid var(--text-primary);
+      padding-bottom: 2px;
     }
 
     .btn {
@@ -161,181 +110,38 @@
       background: #2a3a7a;
     }
 
-    /* Mission Section */
-    .mission {
-      background: var(--bg-cream);
-      padding: 80px 24px;
+    /* Page Header */
+    .page-header {
+      padding: 120px 24px 48px;
+      text-align: center;
     }
 
-    .mission-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .mission h2 {
-      font-size: clamp(40px, 6vw, 64px);
+    .page-header h1 {
+      font-size: clamp(48px, 8vw, 80px);
       font-weight: 300;
-      margin-bottom: 32px;
       letter-spacing: -0.02em;
     }
 
-    .mission p {
-      font-size: 20px;
-      line-height: 1.7;
-      max-width: 800px;
-    }
-
-    .mission .btn {
-      margin-top: 40px;
-    }
-
-    /* Testimonials / Ongoing Efforts */
-    .testimonials {
-      background: var(--bg-color);
-      padding: 80px 24px;
-    }
-
-    .testimonials h2 {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 300;
-      text-align: center;
-      margin-bottom: 56px;
-      letter-spacing: -0.01em;
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .carousel {
-      display: flex;
-      gap: 24px;
-      transition: transform 0.5s ease;
-      cursor: grab;
-    }
-
-    .carousel:active {
-      cursor: grabbing;
-    }
-
-    .carousel-item {
-      flex: 0 0 320px;
-      height: 240px;
-      background: var(--bg-cream);
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-primary);
-      font-size: 14px;
-      opacity: 0.6;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .carousel-btn {
-      width: 48px;
-      height: 48px;
-      border: 2px solid var(--text-primary);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--text-primary);
-      font-size: 20px;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-btn:hover {
-      background: var(--text-primary);
-      color: white;
-    }
-
-    /* Get Involved Section */
-    .get-involved {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 24px;
-      background: linear-gradient(180deg, #a8c4d8 0%, #d5dce5 50%, #e8e4df 100%);
-      position: relative;
-    }
-
-    .get-involved::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2394b8d4"/><stop offset="100%" style="stop-color:%23cdd5e5"/></linearGradient></defs><rect fill="url(%23sky)" width="1440" height="600"/></svg>') center/cover;
-      opacity: 0.4;
-    }
-
-    .get-involved-card {
-      background: var(--bg-cream);
-      padding: 64px 56px;
-      max-width: 700px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .get-involved-card h2 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 300;
-      margin-bottom: 28px;
-      letter-spacing: -0.02em;
-    }
-
-    .get-involved-card p {
+    .page-header p {
       font-size: 18px;
-      line-height: 1.7;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .get-involved-card .btn {
-      margin-top: 36px;
-    }
-
-    .get-involved-card .form-link {
-      display: block;
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--text-primary);
-      opacity: 0.7;
+      margin-top: 16px;
+      opacity: 0.85;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Donate Section */
-    .donate {
-      background: var(--bg-color);
-      padding: 80px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .donate-section {
+      padding: 40px 24px 80px;
     }
 
     .donate-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      max-width: 1200px;
-      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
       align-items: center;
     }
 
@@ -343,18 +149,11 @@
       position: relative;
     }
 
-    .donate-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
     .donate-image-placeholder {
       width: 100%;
-      height: 400px;
+      height: 360px;
       background: linear-gradient(135deg, #7a9bb8 0%, #98b4cc 50%, #b8ccd9 100%);
-      border-radius: 4px;
+      border-radius: 4px 0 0 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -374,89 +173,100 @@
 
     .donate-content {
       background: var(--bg-cream);
-      padding: 56px 64px;
-      height: 400px;
+      padding: 48px 56px;
+      height: 360px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      border-radius: 0 4px 4px 0;
     }
 
     .donate-content h2 {
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(28px, 4vw, 40px);
       font-weight: 300;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       letter-spacing: -0.02em;
     }
 
     .donate-content p {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.6;
       opacity: 0.9;
-      max-width: 400px;
+      max-width: 360px;
     }
 
     .donate-content .btn {
-      margin-top: 32px;
+      margin-top: 28px;
       width: fit-content;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .donate-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .donate-image-placeholder,
-      .donate-image img {
-        height: 280px;
-      }
-
-      .donate-content {
-        height: auto;
-        padding: 40px 32px;
-      }
+    /* Contact Info Section */
+    .contact-section {
+      background: var(--bg-cream);
+      padding: 80px 24px;
     }
 
-    @media (max-width: 640px) {
-      .nav {
-        gap: 24px;
-        padding: 14px 20px;
-      }
+    .contact-section h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+    }
 
-      .nav a {
-        font-size: 13px;
-      }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-      .stats {
-        gap: 32px;
-      }
+    .contact-card {
+      background: white;
+      padding: 32px 28px;
+      border-radius: 4px;
+      text-align: center;
+    }
 
-      .stat-number {
-        font-size: 28px;
-      }
+    .contact-card-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .actions {
-        flex-direction: column;
-        align-items: center;
-      }
+    .contact-card-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--text-primary);
+    }
 
-      .mission {
-        padding: 60px 20px;
-      }
+    .contact-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
 
-      .get-involved-card {
-        padding: 40px 28px;
-      }
+    .contact-card p {
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
-      .carousel-item {
-        flex: 0 0 260px;
-        height: 200px;
-      }
+    .contact-card a {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+
+    .contact-card a:hover {
+      opacity: 0.7;
     }
 
     /* Footer */
     .footer {
-      background: var(--bg-cream);
+      background: var(--bg-color);
       padding: 48px 64px 40px;
       display: flex;
       justify-content: space-between;
@@ -527,7 +337,33 @@
       text-decoration: underline;
     }
 
+    @media (max-width: 800px) {
+      .donate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .donate-image-placeholder {
+        height: 240px;
+        border-radius: 4px 4px 0 0;
+      }
+
+      .donate-content {
+        height: auto;
+        padding: 40px 32px;
+        border-radius: 0 0 4px 4px;
+      }
+    }
+
     @media (max-width: 640px) {
+      .nav {
+        gap: 24px;
+        padding: 14px 20px;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
       .footer {
         flex-direction: column;
         gap: 32px;
@@ -547,53 +383,61 @@
     <a href="/about">About</a>
     <a href="/impact">Impact</a>
     <a href="/join">Join</a>
-    <a href="/contact">Contact Us</a>
+    <a href="/contact" class="active">Contact Us</a>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h1 class="title">
-      <span class="title-empower">Empower</span><br>
-      Essentials
-    </h1>
-    <p class="motto">add motto</p>
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Contact Us</h1>
+    <p>Have questions or want to support our mission? We'd love to hear from you.</p>
+  </header>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-number">1000+</div>
-        <div class="stat-label">kits created</div>
+  <!-- Donate Section -->
+  <section class="donate-section">
+    <div class="donate-grid">
+      <div class="donate-image">
+        <div class="donate-image-placeholder">Add kit image</div>
       </div>
-      <div class="stat">
-        <div class="stat-number">7000+</div>
-        <div class="stat-label">items donated</div>
+      <div class="donate-content">
+        <h2>Donate & Support Us</h2>
+        <p>All donations go towards buying kit materials and setting up fundraisers. Every contribution helps us reach more people in need.</p>
+        <a href="#" class="btn btn--solid">Donate Now</a>
       </div>
-      <div class="stat">
-        <div class="stat-number">2500+</div>
-        <div class="stat-label">dollars raised</div>
-      </div>
-    </div>
-
-    <div class="actions">
-      <a href="/contact" class="btn">Donate ›</a>
-      <a href="/join" class="btn">Join Us ›</a>
     </div>
   </section>
 
-  <!-- Our Mission Section -->
-  <section id="about" class="mission">
-    <div class="mission-content">
-      <h2>Our Mission</h2>
-      <p>We are a student-led nonprofit organization focused on uplifting the homeless community. We raise money through tutoring, bake sales, fundraisers, etc. We use funds to create and donate dental and feminine hygiene, first aid, and mental wellness kits to homeless shelters.</p>
-      <a href="/about" class="btn btn--outline">Learn more ›</a>
-    </div>
-  </section>
-
-  <!-- Get Involved Section -->
-  <section id="join" class="get-involved">
-    <div class="get-involved-card">
-      <h2>Get involved!</h2>
-      <p>We meet for a few hours (~3) monthly to build kits and plan out future events! We have a lot of officer positions open and are looking for new members, so fill out our interest form to join!</p>
-      <a href="/join" class="btn btn--solid">Join Us ›</a>
+  <!-- Contact Info Section -->
+  <section class="contact-section">
+    <h2>Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <h3>Email</h3>
+        <p><a href="mailto:empoweressentials25@gmail.com">empoweressentials25@gmail.com</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <h3>Phone</h3>
+        <p><a href="tel:+14089159237">(408) 915 - 9237</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <h3>Instagram</h3>
+        <p><a href="https://instagram.com/empoweressentials25" target="_blank" rel="noopener">@empoweressentials25</a></p>
+      </div>
     </div>
   </section>
 
@@ -621,7 +465,5 @@
       <a href="/accessibility">Accessibility Statement</a>
     </div>
   </footer>
-
-
 </body>
 </html>

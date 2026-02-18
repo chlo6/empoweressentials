@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join | Empower Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #CDD5E5;
+      --bg-cream: #FAF6F0;
+      --text-primary: #1a2456;
+      --button-bg: #FAF6F0;
+      --button-border: #1a2456;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background: linear-gradient(180deg, #a8c4d8 0%, #d5dce5 50%, #e8e4df 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 0 rgba(26, 36, 86, 0.06);
+    }
+
+    .nav a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      opacity: 0.6;
+    }
+
+    .nav a.active {
+      font-weight: 500;
+      border-bottom: 2px solid var(--text-primary);
+      padding-bottom: 2px;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 12px 32px;
+      border: 2px solid var(--button-border);
+      border-radius: 24px;
+      background: var(--button-bg);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #f5efe6;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn--solid {
+      background: var(--text-primary);
+      color: white;
+      border-color: var(--text-primary);
+    }
+
+    .btn--solid:hover {
+      background: #2a3a7a;
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 2px solid var(--text-primary);
+    }
+
+    .btn--outline:hover {
+      background: rgba(26, 36, 86, 0.05);
+    }
+
+    /* Main Content */
+    .page-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+
+    .join-card {
+      background: var(--bg-cream);
+      padding: 64px 56px;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .join-card h1 {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .join-card p {
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto 32px;
+    }
+
+    .join-card .btn {
+      margin-top: 8px;
+    }
+
+    .join-card .form-link {
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-primary);
+      opacity: 0.7;
+    }
+
+    /* Roles Section */
+    .roles-section {
+      background: var(--bg-cream);
+      padding: 80px 24px;
+    }
+
+    .roles-section h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .role-card {
+      background: var(--bg-color);
+      padding: 32px 28px;
+      border-radius: 4px;
+    }
+
+    .role-card h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .role-card p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: var(--bg-color);
+      padding: 80px 24px;
+    }
+
+    .faq-section h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+    }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-cream);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      border-radius: 4px;
+    }
+
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .faq-item p {
+      font-size: 15px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--bg-color);
+      padding: 80px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 64px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .contact-info a {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: inherit;
+      font-size: 15px;
+      padding: 8px 0;
+      border: none;
+      border-bottom: 1px solid var(--text-primary);
+      background: transparent;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-bottom-color: #4a5a9a;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .contact-form .btn {
+      align-self: flex-end;
+      padding: 12px 48px;
+      border-radius: 4px;
+      background: #5a6a9a;
+      color: white;
+      border: none;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .contact-form .btn:hover {
+      background: #4a5a8a;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-cream);
+      padding: 48px 64px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-left a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-left a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-left span {
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .footer-socials a {
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-socials svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: right;
+    }
+
+    .footer-right a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-right a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 64px 24px;
+      }
+
+      .contact-left h2 {
+        margin-bottom: 32px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        gap: 24px;
+        padding: 14px 20px;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
+      .join-card {
+        padding: 40px 28px;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 32px;
+        padding: 40px 24px;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/impact">Impact</a>
+    <a href="/join" class="active">Join</a>
+    <a href="/contact">Contact Us</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="join-card">
+      <h1>Get Involved!</h1>
+      <p>We meet for a few hours (~3) monthly to build kits and plan out future events! We have a lot of officer positions open and are looking for new members, so fill out our interest form to join!</p>
+      <a href="https://forms.gle/hZX65Wo9FqeUdLeH7" class="btn btn--solid">Sign Up Here!</a>
+      <span class="form-link">https://forms.gle/hZX65Wo9FqeUdLeH7</span>
+    </div>
+  </main>
+
+  <!-- Roles Section -->
+  <section class="roles-section">
+    <h2>Open Positions</h2>
+    <div class="roles-grid">
+      <div class="role-card">
+        <h3>Treasurer</h3>
+        <p>Tracks funds raised by members via Google Sheets and works with inventory manager and fundraising coordinator to plan budgeting.</p>
+      </div>
+      <div class="role-card">
+        <h3>Inventory Manager</h3>
+        <p>Tracks kits numbers through Google Sheets, ensures quality, and works with treasurer for budgeting and ordering.</p>
+      </div>
+      <div class="role-card">
+        <h3>Fundraising Coordinator</h3>
+        <p>Tracks donations given to organization, organizes fundraising events, and work with treasurer to align fundraising with budget needs.</p>
+      </div>
+      <div class="role-card">
+        <h3>Outreach Coordinator</h3>
+        <p>Connects with local businesses for donations (including kit materials!), handles external email inbox, and works with President and VP for recruiting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>How much time commitment is required?</h3>
+        <p>We meet for about 3 hours monthly. Additional time varies based on your role and events.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need any prior experience?</h3>
+        <p>No experience necessary! We welcome everyone who wants to make a difference.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I volunteer without being an officer?</h3>
+        <p>Absolutely! We welcome volunteers at all our events and kit-building sessions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-left">
+      <h2>Let's Work<br>Together</h2>
+      <div class="contact-info">
+        <p><strong>Address</strong></p>
+        <p>E-Mail: <a href="mailto:empoweressentials25@gmail.com">empoweressentials25@gmail.com</a></p>
+        <p>Tel: <a href="tel:+14089159237">408-915-9237</a></p>
+        <p>Instagram: <a href="https://instagram.com/empoweressentials25" target="_blank">@empoweressentials25</a></p>
+      </div>
+    </div>
+    <div class="contact-right">
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <a href="mailto:empoweressentials25@gmail.com">empoweressentials25@gmail.com</a>
+      <a href="tel:+14089159237">(408) 915 - 9237</a>
+      <span>Instagram: @empoweressentials25</span>
+      <div class="footer-socials">
+        <a href="https://instagram.com/empoweressentials25" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@empoweressentials25" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/accessibility">Accessibility Statement</a>
+    </div>
+  </footer>
+</body>
+</html>
