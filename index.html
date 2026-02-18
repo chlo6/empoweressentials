@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empower Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #CDD5E5;
+      --bg-cream: #FAF6F0;
+      --text-primary: #1a2456;
+      --button-bg: #FAF6F0;
+      --button-border: #1a2456;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 0 rgba(26, 36, 86, 0.06);
+    }
+
+    .nav a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      opacity: 0.6;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 60px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: clamp(48px, 10vw, 96px);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .title-empower {
+      font-style: italic;
+    }
+
+    .motto {
+      font-size: 24px;
+      font-weight: 400;
+      margin-top: 20px;
+      color: var(--text-primary);
+      opacity: 0.85;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 40px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 12px 32px;
+      border: 2px solid var(--button-border);
+      border-radius: 24px;
+      background: var(--button-bg);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #f5efe6;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 2px solid var(--text-primary);
+    }
+
+    .btn--outline:hover {
+      background: rgba(26, 36, 86, 0.05);
+    }
+
+    .btn--solid {
+      background: var(--text-primary);
+      color: white;
+      border-color: var(--text-primary);
+    }
+
+    .btn--solid:hover {
+      background: #2a3a7a;
+    }
+
+    /* Mission Section */
+    .mission {
+      background: var(--bg-cream);
+      padding: 80px 24px;
+    }
+
+    .mission-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .mission h2 {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    .mission p {
+      font-size: 20px;
+      line-height: 1.7;
+      max-width: 800px;
+    }
+
+    .mission .btn {
+      margin-top: 40px;
+    }
+
+    /* Testimonials / Ongoing Efforts */
+    .testimonials {
+      background: var(--bg-color);
+      padding: 80px 24px;
+    }
+
+    .testimonials h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 56px;
+      letter-spacing: -0.01em;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.5s ease;
+      cursor: grab;
+    }
+
+    .carousel:active {
+      cursor: grabbing;
+    }
+
+    .carousel-item {
+      flex: 0 0 320px;
+      height: 240px;
+      background: var(--bg-cream);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .carousel-btn {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--text-primary);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      background: var(--text-primary);
+      color: white;
+    }
+
+    /* Get Involved Section */
+    .get-involved {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+      background: linear-gradient(180deg, #a8c4d8 0%, #d5dce5 50%, #e8e4df 100%);
+      position: relative;
+    }
+
+    .get-involved::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2394b8d4"/><stop offset="100%" style="stop-color:%23cdd5e5"/></linearGradient></defs><rect fill="url(%23sky)" width="1440" height="600"/></svg>') center/cover;
+      opacity: 0.4;
+    }
+
+    .get-involved-card {
+      background: var(--bg-cream);
+      padding: 64px 56px;
+      max-width: 700px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .get-involved-card h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .get-involved-card p {
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .get-involved-card .btn {
+      margin-top: 36px;
+    }
+
+    .get-involved-card .form-link {
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-primary);
+      opacity: 0.7;
+    }
+
+    /* Donate Section */
+    .donate {
+      background: var(--bg-color);
+      padding: 80px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1200px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .donate-image {
+      position: relative;
+    }
+
+    .donate-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .donate-image-placeholder {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #7a9bb8 0%, #98b4cc 50%, #b8ccd9 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .donate-image-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
+    }
+
+    .donate-content {
+      background: var(--bg-cream);
+      padding: 56px 64px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .donate-content h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .donate-content p {
+      font-size: 17px;
+      line-height: 1.6;
+      opacity: 0.9;
+      max-width: 400px;
+    }
+
+    .donate-content .btn {
+      margin-top: 32px;
+      width: fit-content;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .donate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .donate-image-placeholder,
+      .donate-image img {
+        height: 280px;
+      }
+
+      .donate-content {
+        height: auto;
+        padding: 40px 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        gap: 24px;
+        padding: 14px 20px;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
+      .stats {
+        gap: 32px;
+      }
+
+      .stat-number {
+        font-size: 28px;
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mission {
+        padding: 60px 20px;
+      }
+
+      .get-involved-card {
+        padding: 40px 28px;
+      }
+
+      .carousel-item {
+        flex: 0 0 260px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/impact">Impact</a>
+    <a href="/join">Join</a>
+    <a href="/contact">Contact Us</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1 class="title">
+      <span class="title-empower">Empower</span><br>
+      Essentials
+    </h1>
+    <p class="motto">add motto</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">kits created</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">7000+</div>
+        <div class="stat-label">items donated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2500+</div>
+        <div class="stat-label">dollars raised</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn">Donate ›</button>
+      <button class="btn">Join Us ›</button>
+    </div>
+  </section>
+
+  <!-- Our Mission Section -->
+  <section id="about" class="mission">
+    <div class="mission-content">
+      <h2>Our Mission</h2>
+      <p>We are a student-led nonprofit organization focused on uplifting the homeless community. We raise money through tutoring, bake sales, fundraisers, etc. We use funds to create and donate dental and feminine hygiene, first aid, and mental wellness kits to homeless shelters.</p>
+      <a href="#" class="btn btn--outline">Learn more ›</a>
+    </div>
+  </section>
+
+  <!-- Ongoing Efforts / Testimonials Section -->
+  <section id="impact" class="testimonials">
+    <h2>Ongoing Efforts — Testimonials</h2>
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
+        <div class="carousel-item">Image 1</div>
+        <div class="carousel-item">Image 2</div>
+        <div class="carousel-item">Image 3</div>
+        <div class="carousel-item">Image 4</div>
+        <div class="carousel-item">Image 5</div>
+        <div class="carousel-item">Image 6</div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn">‹</button>
+      <button class="carousel-btn" id="nextBtn">›</button>
+    </div>
+  </section>
+
+  <!-- Get Involved Section -->
+  <section id="join" class="get-involved">
+    <div class="get-involved-card">
+      <h2>Get involved!</h2>
+      <p>We meet for a few hours (~3) monthly to build kits and plan out future events! We have a lot of officer positions open and are looking for new members, so fill out our interest form to join!</p>
+      <a href="https://forms.gle/hZX65Wo9FqeUdLeH7" class="btn btn--solid">sign up here!</a>
+      <span class="form-link">https://forms.gle/hZX65Wo9FqeUdLeH7</span>
+    </div>
+  </section>
+
+  <!-- Donate Section -->
+  <section id="contact" class="donate">
+    <div class="donate-grid">
+      <div class="donate-image">
+        <div class="donate-image-placeholder">Add kit image</div>
+      </div>
+      <div class="donate-content">
+        <h2>Donate & Support Us</h2>
+        <p>All donations go towards buying kit materials and setting up fundraisers!</p>
+        <a href="#" class="btn btn--outline">Donate</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Carousel functionality with auto-scroll
+    const carousel = document.getElementById('carousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let position = 0;
+    const itemWidth = 344; // 320px + 24px gap
+    const totalItems = carousel.children.length;
+    const maxPosition = -(totalItems - 3) * itemWidth;
+
+    function scrollNext() {
+      if (position <= maxPosition) {
+        position = 0; // Loop back to start
+      } else {
+        position -= itemWidth;
+      }
+      carousel.style.transform = `translateX(${position}px)`;
+    }
+
+    function scrollPrev() {
+      if (position >= 0) {
+        position = maxPosition; // Loop to end
+      } else {
+        position += itemWidth;
+      }
+      carousel.style.transform = `translateX(${position}px)`;
+    }
+
+    nextBtn.addEventListener('click', scrollNext);
+    prevBtn.addEventListener('click', scrollPrev);
+
+    // Auto-scroll every 4 seconds
+    let autoScroll = setInterval(scrollNext, 4000);
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    carousel.addEventListener('mouseleave', () => {
+      autoScroll = setInterval(scrollNext, 4000);
+    });
+
+
+  </script>
+</body>
+</html>
