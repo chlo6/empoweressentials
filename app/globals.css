@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #CDD5E5;
+      --bg-cream: #FAF6F0;
+      --text-primary: #1a2456;
+      --button-bg: #FAF6F0;
+      --button-border: #1a2456;
+    }
