@@ -1,627 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empower Essentials</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-color: #CDD5E5;
-      --bg-cream: #FAF6F0;
-      --text-primary: #1a2456;
-      --button-bg: #FAF6F0;
-      --button-border: #1a2456;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      background-color: var(--bg-color);
-      color: var(--text-primary);
-    }
-
-    /* Navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 40px;
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 1px 0 rgba(26, 36, 86, 0.06);
-    }
-
-    .nav a {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--text-primary);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: all 0.2s;
-    }
-
-    .nav a:hover {
-      opacity: 0.6;
-    }
-
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 100px 24px 60px;
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .title {
-      font-size: clamp(48px, 10vw, 96px);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .title-empower {
-      font-style: italic;
-    }
-
-    .motto {
-      font-size: 24px;
-      font-weight: 400;
-      margin-top: 20px;
-      color: var(--text-primary);
-      opacity: 0.85;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 64px;
-      margin-top: 56px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 40px;
-      font-weight: 300;
-      letter-spacing: -0.01em;
-    }
-
-    .stat-label {
-      font-size: 16px;
-      font-weight: 400;
-      margin-top: 4px;
-      opacity: 0.9;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 48px;
-    }
-
-    .btn {
-      font-family: inherit;
-      font-size: 18px;
-      font-weight: 300;
-      padding: 12px 32px;
-      border: 2px solid var(--button-border);
-      border-radius: 24px;
-      background: var(--button-bg);
-      color: var(--text-primary);
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.15s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background: #f5efe6;
-      transform: translateY(-1px);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn--outline {
-      background: transparent;
-      border: 2px solid var(--text-primary);
-    }
-
-    .btn--outline:hover {
-      background: rgba(26, 36, 86, 0.05);
-    }
-
-    .btn--solid {
-      background: var(--text-primary);
-      color: white;
-      border-color: var(--text-primary);
-    }
-
-    .btn--solid:hover {
-      background: #2a3a7a;
-    }
-
-    /* Mission Section */
-    .mission {
-      background: var(--bg-cream);
-      padding: 80px 24px;
-    }
-
-    .mission-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .mission h2 {
-      font-size: clamp(40px, 6vw, 64px);
-      font-weight: 300;
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-    }
-
-    .mission p {
-      font-size: 20px;
-      line-height: 1.7;
-      max-width: 800px;
-    }
-
-    .mission .btn {
-      margin-top: 40px;
-    }
-
-    /* Testimonials / Ongoing Efforts */
-    .testimonials {
-      background: var(--bg-color);
-      padding: 80px 24px;
-    }
-
-    .testimonials h2 {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 300;
-      text-align: center;
-      margin-bottom: 56px;
-      letter-spacing: -0.01em;
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .carousel {
-      display: flex;
-      gap: 24px;
-      transition: transform 0.5s ease;
-      cursor: grab;
-    }
-
-    .carousel:active {
-      cursor: grabbing;
-    }
-
-    .carousel-item {
-      flex: 0 0 320px;
-      height: 240px;
-      background: var(--bg-cream);
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-primary);
-      font-size: 14px;
-      opacity: 0.6;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .carousel-btn {
-      width: 48px;
-      height: 48px;
-      border: 2px solid var(--text-primary);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--text-primary);
-      font-size: 20px;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-btn:hover {
-      background: var(--text-primary);
-      color: white;
-    }
-
-    /* Get Involved Section */
-    .get-involved {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 24px;
-      background: linear-gradient(180deg, #a8c4d8 0%, #d5dce5 50%, #e8e4df 100%);
-      position: relative;
-    }
-
-    .get-involved::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2394b8d4"/><stop offset="100%" style="stop-color:%23cdd5e5"/></linearGradient></defs><rect fill="url(%23sky)" width="1440" height="600"/></svg>') center/cover;
-      opacity: 0.4;
-    }
-
-    .get-involved-card {
-      background: var(--bg-cream);
-      padding: 64px 56px;
-      max-width: 700px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .get-involved-card h2 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 300;
-      margin-bottom: 28px;
-      letter-spacing: -0.02em;
-    }
-
-    .get-involved-card p {
-      font-size: 18px;
-      line-height: 1.7;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .get-involved-card .btn {
-      margin-top: 36px;
-    }
-
-    .get-involved-card .form-link {
-      display: block;
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--text-primary);
-      opacity: 0.7;
-    }
-
-    /* Donate Section */
-    .donate {
-      background: var(--bg-color);
-      padding: 80px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .donate-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      max-width: 1200px;
-      width: 100%;
-      align-items: center;
-    }
-
-    .donate-image {
-      position: relative;
-    }
-
-    .donate-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .donate-image-placeholder {
-      width: 100%;
-      height: 400px;
-      background: linear-gradient(135deg, #7a9bb8 0%, #98b4cc 50%, #b8ccd9 100%);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 14px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .donate-image-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
-    }
-
-    .donate-content {
-      background: var(--bg-cream);
-      padding: 56px 64px;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .donate-content h2 {
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 300;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    .donate-content p {
-      font-size: 17px;
-      line-height: 1.6;
-      opacity: 0.9;
-      max-width: 400px;
-    }
-
-    .donate-content .btn {
-      margin-top: 32px;
-      width: fit-content;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .donate-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .donate-image-placeholder,
-      .donate-image img {
-        height: 280px;
-      }
-
-      .donate-content {
-        height: auto;
-        padding: 40px 32px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav {
-        gap: 24px;
-        padding: 14px 20px;
-      }
-
-      .nav a {
-        font-size: 13px;
-      }
-
-      .stats {
-        gap: 32px;
-      }
-
-      .stat-number {
-        font-size: 28px;
-      }
-
-      .actions {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .mission {
-        padding: 60px 20px;
-      }
-
-      .get-involved-card {
-        padding: 40px 28px;
-      }
-
-      .carousel-item {
-        flex: 0 0 260px;
-        height: 200px;
-      }
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--bg-cream);
-      padding: 48px 64px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .footer-left a {
-      color: var(--text-primary);
-      text-decoration: underline;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .footer-left a:hover {
-      opacity: 0.7;
-    }
-
-    .footer-left span {
-      color: var(--text-primary);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .footer-socials a {
-      color: var(--text-primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer-socials a:hover {
-      opacity: 0.7;
-    }
-
-    .footer-socials svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .footer-right {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      text-align: right;
-    }
-
-    .footer-right a {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .footer-right a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 640px) {
-      .footer {
-        flex-direction: column;
-        gap: 32px;
-        padding: 40px 24px;
-      }
-
-      .footer-right {
-        text-align: left;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/impact">Impact</a>
-    <a href="/join">Join</a>
-    <a href="/contact">Contact Us</a>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h1 class="title">
-      <span class="title-empower">Empower</span><br>
-      Essentials
-    </h1>
-    <p class="motto">add motto</p>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-number">1000+</div>
-        <div class="stat-label">kits created</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">7000+</div>
-        <div class="stat-label">items donated</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">2500+</div>
-        <div class="stat-label">dollars raised</div>
-      </div>
-    </div>
-
-    <div class="actions">
-      <a href="/contact" class="btn">Donate ›</a>
-      <a href="/join" class="btn">Join Us ›</a>
-    </div>
-  </section>
-
-  <!-- Our Mission Section -->
-  <section id="about" class="mission">
-    <div class="mission-content">
-      <h2>Our Mission</h2>
-      <p>We are a student-led nonprofit organization focused on uplifting the homeless community. We raise money through tutoring, bake sales, fundraisers, etc. We use funds to create and donate dental and feminine hygiene, first aid, and mental wellness kits to homeless shelters.</p>
-      <a href="/about" class="btn btn--outline">Learn more ›</a>
-    </div>
-  </section>
-
-  <!-- Get Involved Section -->
-  <section id="join" class="get-involved">
-    <div class="get-involved-card">
-      <h2>Get involved!</h2>
-      <p>We meet for a few hours (~3) monthly to build kits and plan out future events! We have a lot of officer positions open and are looking for new members, so fill out our interest form to join!</p>
-      <a href="/join" class="btn btn--solid">Join Us ›</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-left">
-      <a href="mailto:empoweressentials25@gmail.com">empoweressentials25@gmail.com</a>
-      <a href="tel:+14089159237">(408) 915 - 9237</a>
-      <span>Instagram: @empoweressentials25</span>
-      <div class="footer-socials">
-        <a href="https://instagram.com/empoweressentials25" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-        <a href="https://tiktok.com/@empoweressentials25" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div class="footer-right">
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/accessibility">Accessibility Statement</a>
-    </div>
-  </footer>
-
-
-</body>
-</html>
+export default function Home() {
+  return (
+    <>
+      {/* Navigation */}
+      <nav className="nav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/impact">Impact</a>
+        <a href="/join">Join</a>
+        <a href="/contact">Contact Us</a>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="hero">
+        <h1 className="title">
+          <span className="title-empower">Empower</span>
+          <br />
+          Essentials
+        </h1>
+
+        <p className="motto">add motto</p>
+
+        <div className="stats">
+          <div className="stat">
+            <div className="stat-number">1000+</div>
+            <div className="stat-label">kits created</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-number">7000+</div>
+            <div className="stat-label">items donated</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-number">2500+</div>
+            <div className="stat-label">dollars raised</div>
+          </div>
+        </div>
+
+        <div className="actions">
+          <a href="/contact" className="btn">
+            Donate ›
+          </a>
+
+          <a href="/join" className="btn">
+            Join Us ›
+          </a>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section id="about" className="mission">
+        <div className="mission-content">
+          <h2>Our Mission</h2>
+
+          <p>
+            We are a student-led nonprofit organization focused on uplifting the
+            homeless community. We raise money through tutoring, bake sales,
+            fundraisers, etc. We use funds to create and donate dental and
+            feminine hygiene, first aid, and mental wellness kits to homeless
+            shelters.
+          </p>
+
+          <a href="/about" className="btn btn--outline">
+            Learn more ›
+          </a>
+        </div>
+      </section>
+
+      {/* Get Involved */}
+      <section id="join" className="get-involved">
+        <div className="get-involved-card">
+          <h2>Get involved!</h2>
+
+          <p>
+            We meet for a few hours (~3) monthly to build kits and plan out
+            future events! We have a lot of officer positions open and are
+            looking for new members, so fill out our interest form to join!
+          </p>
+
+          <a href="/join" className="btn btn--solid">
+            Join Us ›
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-left">
+          <a href="mailto:empoweressentials25@gmail.com">
+            empoweressentials25@gmail.com
+          </a>
+
+          <a href="tel:+14089159237">(408) 915 - 9237</a>
+
+          <span>Instagram: @empoweressentials25</span>
+
+          <div className="footer-socials">
+            <a
+              href="https://instagram.com/empoweressentials25"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://tiktok.com/@empoweressentials25"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TikTok
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-right">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/accessibility">Accessibility Statement</a>
+        </div>
+      </footer>
+    </>
+  );
+}
