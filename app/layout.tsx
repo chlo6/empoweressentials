@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+// app/layout.tsx
 import "./globals.css";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Empower Essentials",
   description: "Student-led nonprofit organization",
 };
@@ -13,19 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Inter Font */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
