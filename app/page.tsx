@@ -8,8 +8,8 @@ export default function Home() {
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/impact">Impact</a>
-        <a href="/join">Join</a>
-        <a href="/contact">Contact Us</a>
+        <a href="/join">Join / Contact Us</a>
+        <a href="/donate">Donate</a>
       </nav>
 
       {/* Hero Section */}
@@ -40,7 +40,7 @@ export default function Home() {
         </div>
 
         <div className="actions">
-          <a href="/contact" className="btn">
+          <a href="/donate" className="btn">
             Donate ›
           </a>
 
