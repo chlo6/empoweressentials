@@ -136,25 +136,25 @@ export default function Impact() {
             <div className="partner-logo">
               <span className="partner-logo-placeholder">Add logo</span>
             </div>
-            <div className="partner-name">Partner 1</div>
+            <div className="partner-name">Family Supportive Housing</div>
           </div>
           <div className="partner">
             <div className="partner-logo">
               <span className="partner-logo-placeholder">Add logo</span>
             </div>
-            <div className="partner-name">Partner 2</div>
+            <div className="partner-name">The Giving Tree</div>
           </div>
           <div className="partner">
             <div className="partner-logo">
               <span className="partner-logo-placeholder">Add logo</span>
             </div>
-            <div className="partner-name">Partner 3</div>
+            <div className="partner-name">Salvation Army</div>
           </div>
           <div className="partner">
             <div className="partner-logo">
               <span className="partner-logo-placeholder">Add logo</span>
             </div>
-            <div className="partner-name">Partner 4</div>
+            <div className="partner-name">City Team</div>
           </div>
         </div>
       </section>

@@ -551,7 +551,7 @@ body {
 .kits-section h2 {
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 300;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 48px;
   letter-spacing: -0.01em;
   padding-left: 40px;
@@ -618,7 +618,7 @@ body {
 .partners-section h2 {
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 300;
-  font-style: italic;
+  font-style: normal;
   text-align: center;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
