@@ -77,19 +77,48 @@
 
 .join-team-gallery {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  width: fit-content;
   margin: 4rem auto;
 }
 
 .join-team-img {
   height: 420px;
   width: auto;
-  max-width: 90%;
+  max-width: 90vw;
   object-fit: contain;
   border-radius: 16px;
   display: block;
+}
+
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-item {
+  flex: 0 0 320px;
+  width: 320px;
+  height: 430px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-img,
+.carousel-item img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 1;
 }
 
 .partner-logo {
