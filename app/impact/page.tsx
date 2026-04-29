@@ -66,12 +66,13 @@ export default function Impact() {
             ref={carouselRef}
             style={{ transform: `translateX(${position}px)` }}
           >
-            <div className="carousel-item">Image 1</div>
-            <div className="carousel-item">Image 2</div>
-            <div className="carousel-item">Image 3</div>
-            <div className="carousel-item">Image 4</div>
-            <div className="carousel-item">Image 5</div>
-            <div className="carousel-item">Image 6</div>
+            <div className="carousel-item"><img src="/testimonial1.png" alt="Testimonial 1" className="carousel-img" /></div>
+            <div className="carousel-item"><img src="/testimonial2.png" alt="Testimonial 2" className="carousel-img" /></div>
+            <div className="carousel-item"><img src="/testimonial3.png" alt="Testimonial 3" className="carousel-img" /></div>
+            <div className="carousel-item"><img src="/testimonial4.png" alt="Testimonial 4" className="carousel-img" /></div>
+            <div className="carousel-item"><img src="/testimonial5.png" alt="Testimonial 5" className="carousel-img" /></div>
+            <div className="carousel-item"><img src="/testimonial6.png" alt="Testimonial 6" className="carousel-img" /></div>
+            <div className="carousel-item"><img src="/testimonial7.png" alt="Testimonial 7" className="carousel-img" /></div>
           </div>
         </div>
         <div className="carousel-controls">
@@ -90,7 +91,7 @@ export default function Impact() {
         <div className="kits-grid">
           <div className="kit-card">
             <div className="kit-image">
-              <span className="kit-image-placeholder">Add image</span>
+              <img src="/kit1.png" alt="Dental Hygiene Kit" className="kit-img" />
             </div>
             <div className="kit-info">
               <div className="kit-name">Dental Hygiene</div>
@@ -99,7 +100,7 @@ export default function Impact() {
           </div>
           <div className="kit-card">
             <div className="kit-image">
-              <span className="kit-image-placeholder">Add image</span>
+              <img src="/kit2.png" alt="Feminine Hygiene Kit 1" className="kit-img" />
             </div>
             <div className="kit-info">
               <div className="kit-name">Feminine Hygiene [1]</div>
@@ -108,7 +109,7 @@ export default function Impact() {
           </div>
           <div className="kit-card">
             <div className="kit-image">
-              <span className="kit-image-placeholder">Add image</span>
+              <img src="/kit3.png" alt="Feminine Hygiene Kit 2" className="kit-img" />
             </div>
             <div className="kit-info">
               <div className="kit-name">Feminine Hygiene [2]</div>
@@ -117,7 +118,7 @@ export default function Impact() {
           </div>
           <div className="kit-card">
             <div className="kit-image">
-              <span className="kit-image-placeholder">Add image</span>
+              <img src="/kit4.png" alt="Feminine Hygiene Kit 3" className="kit-img" />
             </div>
             <div className="kit-info">
               <div className="kit-name">Feminine Hygiene [3]</div>
