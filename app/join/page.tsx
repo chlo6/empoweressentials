@@ -43,7 +43,6 @@ export default function Join() {
       <section className="join-images">
         <div className="join-team-gallery">
         <img src="/team1.png" alt="Empower Essentials Team" className="join-team-img" />
-        <img src="/team2.png" alt="Empower Essentials Team" className="join-team-img" />
       </div>
       </section>
 
