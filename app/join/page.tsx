@@ -41,8 +41,10 @@ export default function Join() {
 
       {/* Two Images Section */}
       <section className="join-images">
-        <div className="join-image-placeholder">Add image</div>
-        <div className="join-image-placeholder">Add image</div>
+        <div className="join-team-gallery">
+        <img src="/team1.png" alt="Empower Essentials Team" className="join-team-img" />
+        <img src="/team2.png" alt="Empower Essentials Team" className="join-team-img" />
+      </div>
       </section>
 
       {/* Join Today Section */}
