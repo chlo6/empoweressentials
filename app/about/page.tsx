@@ -153,7 +153,7 @@ export default function About() {
       </section>
 
       {/* Footer */}
-      <footer className="light-footer">
+      <footer className="footer light-footer">
         <div className="footer-left">
           <a href="mailto:empoweressentials25@gmail.com">
             empoweressentials25@gmail.com
