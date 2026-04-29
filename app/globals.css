@@ -75,12 +75,21 @@
   overflow: hidden;
 }
 
+.join-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px 80px;
+  background: var(--bg-cream);
+}
+
 .join-team-gallery {
   display: flex;
   justify-content: center;
   align-items: center;
   width: fit-content;
-  margin: 4rem auto;
+  margin: 0 auto;
 }
 
 .join-team-img {
