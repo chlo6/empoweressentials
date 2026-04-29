@@ -69,7 +69,7 @@ export default function About() {
         <div className="team-member">
           <div className="team-member-photo">
             <img
-              src="/officers/sakthi.png"
+              src="/sakthi.png"
               alt="Sakthi Satrawada"
               className="team-member-img"
             />
@@ -98,7 +98,7 @@ export default function About() {
         <div className="team-member">
           <div className="team-member-photo">
             <img
-              src="/officers/cerie.png"
+              src="/cerie.png"
               alt="Cerie"
               className="team-member-img"
             />
@@ -128,7 +128,7 @@ export default function About() {
         <div className="team-member">
           <div className="team-member-photo">
             <img
-              src="/officers/riya.png"
+              src="/riya.png"
               alt="Riya Rajakumar"
               className="team-member-img"
             />
