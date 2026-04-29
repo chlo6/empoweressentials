@@ -127,3 +127,7 @@
   border-radius: 16px;
   display: block;
 }
+
+.light-footer {
+  background-color: #f7f3eb; /* light cream */
+}
