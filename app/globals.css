@@ -67,3 +67,20 @@
   align-items: center;
   overflow: hidden;
 }
+
+.join-team-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.join-team-img {
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
