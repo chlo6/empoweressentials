@@ -111,18 +111,19 @@
 
 .join-team-gallery {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: nowrap; /* keeps them in one line */
-  margin: 3rem 0;
+  justify-content: center; 
+  align-items: center; 
+  gap: 2.5rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 4rem auto;
 }
 
 .join-team-img {
-  height: 320px; /* same height for both */
-  width: auto; /* keeps full image proportions */
-  max-width: 48%;
-  object-fit: contain; /* no cropping */
+  height: 420px; 
+  width: auto; 
+  max-width: 45%;
+  object-fit: contain; 
   border-radius: 16px;
   display: block;
 }
