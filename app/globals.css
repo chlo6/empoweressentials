@@ -41,18 +41,27 @@
 .carousel-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
+  object-fit: contain; /* shows full testimonial without vertical crop */
+  display: block;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .kit-img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
+  height: 100%;
+  object-fit: cover; /* fills full card shape */
+  display: block;
 }
 
 .kit-image {
+  width: 100%;
+  height: 220px; /* adjust taller/shorter if needed */
   display: flex;
   justify-content: center;
   align-items: center;
