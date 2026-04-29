@@ -66,75 +66,90 @@ export default function About() {
         <h2>Meet The Team</h2>
         <div className="team-section-divider"></div>
         <div className="team-grid">
-          <div className="team-member">
-            <div className="team-member-photo">
-              <span className="team-member-initials">JD</span>
-            </div>
-            <div className="team-member-name">Jane Doe</div>
-            <div className="team-member-role">Founder &amp; President</div>
-            <p className="team-member-bio">
-              Passionate about community service and making hygiene essentials
-              accessible to everyone. Started Empower Essentials to create
-              lasting change.
-            </p>
+        <div className="team-member">
+          <div className="team-member-photo">
+            <img
+              src="/officers/sakthi.png"
+              alt="Sakthi Satrawada"
+              className="team-member-img"
+            />
           </div>
-          <div className="team-member">
-            <div className="team-member-photo">
-              <span className="team-member-initials">AS</span>
-            </div>
-            <div className="team-member-name">Alex Smith</div>
-            <div className="team-member-role">Vice President</div>
-            <p className="team-member-bio">
-              Coordinates our monthly kit-building sessions and manages
-              partnerships with local shelters. Believes small acts create big
-              impact.
-            </p>
-          </div>
-          <div className="team-member">
-            <div className="team-member-photo">
-              <span className="team-member-initials">MJ</span>
-            </div>
-            <div className="team-member-name">Maria Johnson</div>
-            <div className="team-member-role">Outreach Coordinator</div>
-            <p className="team-member-bio">
-              Connects our organization with community partners and spreads
-              awareness about our mission through local events and schools.
-            </p>
-          </div>
-          <div className="team-member">
-            <div className="team-member-photo">
-              <span className="team-member-initials">TC</span>
-            </div>
-            <div className="team-member-name">Tyler Chen</div>
-            <div className="team-member-role">Fundraising Lead</div>
-            <p className="team-member-bio">
-              Organizes bake sales, tutoring sessions, and fundraising events.
-              Dedicated to ensuring we have resources to help those in need.
-            </p>
-          </div>
-          <div className="team-member">
-            <div className="team-member-photo">
-              <span className="team-member-initials">SP</span>
-            </div>
-            <div className="team-member-name">Sarah Park</div>
-            <div className="team-member-role">Social Media Manager</div>
-            <p className="team-member-bio">
-              Manages our Instagram and TikTok presence, sharing our story and
-              impact with the wider community through engaging content.
-            </p>
-          </div>
-          <div className="team-member">
-            <div className="team-member-photo">
-              <span className="team-member-initials">KW</span>
-            </div>
-            <div className="team-member-name">Kevin Williams</div>
-            <div className="team-member-role">Events Coordinator</div>
-            <p className="team-member-bio">
-              Plans and executes our community events and volunteer activities.
-              Brings energy and organization to every initiative we take on.
-            </p>
-          </div>
+          <div className="team-member-name">Sakthi Satrawada</div>
+          <div className="team-member-role">President and Founder</div>
+          <p className="team-member-bio">
+            Monta Vista High School
+          </p>
+          <p className="team-member-bio">
+            My favorite part about EE is making a real impact in my community while
+            meeting new people, whether that&apos;s through welcoming new members or
+            working with new shelters and volunteers.
+          </p>
+          <p className="team-member-bio">
+            My main goal at Empower Essentials is to foster a fun, engaging community
+            where students can collaborate to drive meaningful change while gaining
+            hands-on experience in community service and nonprofit leadership.
+          </p>
+          <p className="team-member-bio">
+            Fun fact: I am a huge foodie and love trying fun restaurants with my family
+            and friends!
+          </p>
         </div>
+      
+        <div className="team-member">
+          <div className="team-member-photo">
+            <img
+              src="/officers/cerie.png"
+              alt="Cerie"
+              className="team-member-img"
+            />
+          </div>
+          <div className="team-member-name">Cerie</div>
+          <div className="team-member-role">Social Media Manager</div>
+          <p className="team-member-bio">
+            Sunnyvale, CA
+          </p>
+          <p className="team-member-bio">
+            My favorite part about EE is being part of a community of people who take
+            action and make change for causes they are passionate about. Every meeting
+            is super fun, and putting together donation kits is genuinely relaxing
+            while knowing we are helping others.
+          </p>
+          <p className="team-member-bio">
+            My main goal at EE is to raise awareness about homelessness and encourage
+            people to contribute, whether through volunteering with us or making
+            donations to give back to the community.
+          </p>
+          <p className="team-member-bio">
+            Fun fact: I may come across as really quiet, but once you get to know me, I
+            open up a lot.
+          </p>
+        </div>
+      
+        <div className="team-member">
+          <div className="team-member-photo">
+            <img
+              src="/officers/riya.png"
+              alt="Riya Rajakumar"
+              className="team-member-img"
+            />
+          </div>
+          <div className="team-member-name">Riya Rajakumar</div>
+          <div className="team-member-role">Secretary</div>
+          <p className="team-member-bio">
+            My favorite part about EE is the little community that we built within the
+            nonprofit, as well as the impact I can make toward feminine hygiene in our
+            community.
+          </p>
+          <p className="team-member-bio">
+            My main goal at EE is to expand access to feminine hygiene products
+            specifically and bring awareness to the menstrual product crisis that many
+            unhoused and underprivileged women face.
+          </p>
+          <p className="team-member-bio">
+            Fun fact: I love to sing and write in my free time.
+          </p>
+        </div>
+      </div>
       </section>
 
       {/* Footer */}
