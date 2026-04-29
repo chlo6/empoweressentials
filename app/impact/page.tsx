@@ -135,25 +135,25 @@ export default function Impact() {
         <div className="partners-grid">
           <div className="partner">
             <div className="partner-logo">
-              <span className="partner-logo-placeholder">Add logo</span>
+              <img src="/fsh.png" alt="Family Supportive Housing" className="partner-img" />
             </div>
             <div className="partner-name">Family Supportive Housing</div>
           </div>
           <div className="partner">
             <div className="partner-logo">
-              <span className="partner-logo-placeholder">Add logo</span>
+              <img src="/fgt.png" alt="Family Giving Tree" className="partner-img" />
             </div>
-            <div className="partner-name">The Giving Tree</div>
+            <div className="partner-name">Family Giving Tree</div>
           </div>
           <div className="partner">
             <div className="partner-logo">
-              <span className="partner-logo-placeholder">Add logo</span>
+              <img src="/salvarmy.png" alt="Salvation Army" className="partner-img" />
             </div>
             <div className="partner-name">Salvation Army</div>
           </div>
           <div className="partner">
             <div className="partner-logo">
-              <span className="partner-logo-placeholder">Add logo</span>
+              <img src="/ct.png" alt="City Team" className="partner-img" />
             </div>
             <div className="partner-name">City Team</div>
           </div>
