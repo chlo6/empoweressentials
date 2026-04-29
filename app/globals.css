@@ -38,18 +38,25 @@
   margin-bottom: 1rem;
 }
 
-.carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* shows full testimonial without vertical crop */
-  display: block;
+.carousel-item {
+  width: 320px;
+  height: 420px; 
+  flex: 0 0 320px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.carousel-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+.carousel-img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
 }
 
 .kit-img {
