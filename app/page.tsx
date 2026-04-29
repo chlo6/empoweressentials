@@ -20,7 +20,7 @@ export default function Home() {
           Essentials
         </h1>
 
-        <p className="motto">add motto</p>
+        <p className="motto">empower through the essentials :)</p>
 
         <div className="stats">
           <div className="stat">
