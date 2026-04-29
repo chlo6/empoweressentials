@@ -6,7 +6,7 @@ export default function Impact() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState(0);
   const itemWidth = 344; // 320px + 24px gap
-  const totalItems = 6;
+  const totalItems = 7;
   const maxPosition = -(totalItems - 3) * itemWidth;
 
   const scrollNext = useCallback(() => {
