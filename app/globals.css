@@ -99,9 +99,10 @@
 }
 
 .carousel-item {
-  flex: 0 0 320px;
-  width: 320px;
+  flex: 0 0 auto; 
   height: 430px;
+  min-width: 220px; 
+  max-width: 420px;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -113,12 +114,11 @@
 
 .carousel-img,
 .carousel-item img {
+  height: 100%; 
   width: auto;
-  height: 100%;
   max-width: 100%;
   object-fit: contain;
   display: block;
-  opacity: 1;
 }
 
 .partner-logo {
