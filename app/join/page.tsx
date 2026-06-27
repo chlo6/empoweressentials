@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Join() {
@@ -27,11 +28,11 @@ export default function Join() {
     <>
       {/* Navigation */}
       <nav className="nav">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/impact">Impact</a>
-        <a href="/join" className="active">Join / Contact Us</a>
-        <a href="/donate">Donate</a>
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/impact">Impact</Link>
+        <Link href="/join" className="active">Join / Contact Us</Link>
+        <Link href="/donate">Donate</Link>
       </nav>
 
       {/* Page Header */}
@@ -163,6 +164,7 @@ export default function Join() {
           </a>
           <a href="tel:+14089159237">(408) 915 - 9237</a>
           <span>Instagram: @empoweressentials25</span>
+          <span>A 501(c)(3) with Tax ID: 41-4365462</span>
           <div className="footer-socials">
             <a
               href="https://instagram.com/empoweressentials25"

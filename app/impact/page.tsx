@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, useCallback } from "react";
 
 export default function Impact() {
@@ -26,11 +27,11 @@ export default function Impact() {
     <>
       {/* Navigation */}
       <nav className="nav">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/impact" className="active">Impact</a>
-        <a href="/join">Join / Contact Us</a>
-        <a href="/donate">Donate</a>
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/impact" className="active">Impact</Link>
+        <Link href="/join">Join / Contact Us</Link>
+        <Link href="/donate">Donate</Link>
       </nav>
 
       {/* Page Header */}
@@ -43,15 +44,15 @@ export default function Impact() {
       <section className="impact-stats-section">
         <div className="impact-stats">
           <div className="impact-stat">
-            <div className="impact-stat-number">1000+</div>
-            <div className="impact-stat-label">kits created</div>
-          </div>
-          <div className="impact-stat">
-            <div className="impact-stat-number">7000+</div>
+            <div className="impact-stat-number">13,000+</div>
             <div className="impact-stat-label">items donated</div>
           </div>
           <div className="impact-stat">
-            <div className="impact-stat-number">2500+</div>
+            <div className="impact-stat-number">2,600+</div>
+            <div className="impact-stat-label">kits created</div>
+          </div>
+          <div className="impact-stat">
+            <div className="impact-stat-number">5,000+</div>
             <div className="impact-stat-label">dollars raised</div>
           </div>
         </div>
@@ -175,6 +176,7 @@ export default function Impact() {
           </a>
           <a href="tel:+14089159237">(408) 915 - 9237</a>
           <span>Instagram: @empoweressentials25</span>
+          <span>A 501(c)(3) with Tax ID: 41-4365462</span>
           <div className="footer-socials">
             <a
               href="https://instagram.com/empoweressentials25"

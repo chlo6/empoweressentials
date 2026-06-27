@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "About | Empower Essentials",
 };
@@ -7,11 +9,11 @@ export default function About() {
     <>
       {/* Navigation */}
       <nav className="nav">
-        <a href="/">Home</a>
-        <a href="/about" className="active">About</a>
-        <a href="/impact">Impact</a>
-        <a href="/join">Join / Contact Us</a>
-        <a href="/donate">Donate</a>
+        <Link href="/">Home</Link>
+        <Link href="/about" className="active">About</Link>
+        <Link href="/impact">Impact</Link>
+        <Link href="/join">Join / Contact Us</Link>
+        <Link href="/donate">Donate</Link>
       </nav>
 
       {/* Page Content */}
@@ -160,6 +162,7 @@ export default function About() {
           </a>
           <a href="tel:+14089159237">(408) 915 - 9237</a>
           <span>Instagram: @empoweressentials25</span>
+          <span>A 501(c)(3) with Tax ID: 41-4365462</span>
           <div className="footer-socials">
             <a
               href="https://instagram.com/empoweressentials25"

@@ -498,7 +498,7 @@ body {
 .carousel-item {
   flex: 0 0 320px;
   height: 240px;
-  background: var(--bg-cream);
+  background: white;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -506,7 +506,7 @@ body {
   justify-content: center;
   color: var(--text-primary);
   font-size: 14px;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .carousel-item img {
@@ -752,7 +752,7 @@ body {
 
 /* Join Page Header */
 .join-header {
-  padding: 120px 24px 60px;
+  padding: 120px 24px 24px;
   text-align: center;
   background: var(--bg-cream);
 }
@@ -765,12 +765,13 @@ body {
 
 /* Join Images */
 .join-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px 80px;
+  padding: 0 40px 24px;
   background: var(--bg-cream);
 }
 
