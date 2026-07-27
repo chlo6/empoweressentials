@@ -31,7 +31,7 @@ export default function Donate() {
             those in need. Every dollar makes a difference.
           </p>
           <div className="donate-options">
-            <a href="https://forms.gle/hZX65Wo9FqeUdLeH7" target="_blank" rel="noopener noreferrer" className="btn btn--solid">
+            <a href="https://donorbox.org/monetary-donation-to-empower-essentials" target="_blank" rel="noopener noreferrer" className="btn btn--solid">
               Donate Now
             </a>
           </div>
